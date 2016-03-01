@@ -1,0 +1,169 @@
+<!doctype html>
+<html lang="es">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0"/>
+    <title>Monitoreo</title>
+
+    <!-- CSS  -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="../static/css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+</head>
+<body>
+<nav class="indigo  nav-principal" role="navigation">
+    <div class="nav-wrapper container">
+        <a id="logo-container" href="../index.html" class="brand-logo">Rm</a>
+    </div>
+</nav>
+<br/><br/>
+
+{#<div class="container">#}
+    {#********************************* Monitoreo de SO *********************************#}
+    <h4 class="center">Monitoreo de Sistema Operativo</h4>
+    <table class="responsive-table container">
+        <thead>
+        <tr>
+            <th data-field="id">ID</th>
+            <th data-field="name">Kernel</th>
+            <th data-field="name">Release</th>
+            <th data-field="name">Nodename</th>
+            <th data-field="name">Kernelversion</th>
+            <th data-field="name">Machine</th>
+            <th data-field="name">Processor</th>
+            <th data-field="name">Operatingsystem</th>
+            <th data-field="name">Hardware</th>
+            <th data-field="name">Fecha</th>
+        </tr>
+        </thead>
+        {% for dato in datos_os %}
+            <tr>
+                <td>{{ dato.0 }}</td>
+                <td>{{ dato.1 }}</td>
+                <td>{{ dato.2 }}</td>
+                <td>{{ dato.3 }}</td>
+                <td>{{ dato.4 }}</td>
+                <td>{{ dato.5 }}</td>
+                <td>{{ dato.6 }}</td>
+                <td>{{ dato.7 }}</td>
+                <td>{{ dato.8 }}</td>
+                <td>{{ dato.9 }}</td>
+            </tr>
+        {% endfor %}
+    </table>
+    <br/><br/>
+
+    {#********************************* Monitoreo de Usurios *********************************#}
+    <h4 class="center">Monitoreo de Usuarios</h4>
+    <table class="responsive-table container">
+        <thead>
+        <tr>
+            <th data-field="id">ID</th>
+            <th data-field="name">Persona</th>
+            <th data-field="name">Fecha</th>
+        </tr>
+        </thead>
+        {% for dato in datos_who %}
+            <tr>
+                <td>{{ dato.0 }}</td>
+                <td>{{ dato.1 }}</td>
+                <td>{{ dato.2 }}</td>
+            </tr>
+        {% endfor %}
+    </table>
+    <br/><br/>
+
+    {#********************************* Monitoreo de CPU *********************************#}
+    <h4 class="center"> Monitoreo de CPU</h4>
+    <table class="responsive-table container">
+        <thead>
+        <tr>
+            <th data-field="id">ID</th>
+            <th data-field="name">Usuario</th>
+            <th data-field="name">Sistema</th>
+            <th data-field="name">Idle</th>
+            <th data-field="name">Waiting</th>
+            <th data-field="name">Stolen</th>
+            <th data-field="name">Fecha</th>
+        </tr>
+        </thead>
+        {% for dato in datos_cpu %}
+            <tr>
+                <td>{{ dato.0 }}</td>
+                <td>{{ dato.1 }}</td>
+                <td>{{ dato.2 }}</td>
+                <td>{{ dato.3 }}</td>
+                <td>{{ dato.4 }}</td>
+                <td>{{ dato.5 }}</td>
+                <td>{{ dato.6 }}</td>
+            </tr>
+        {% endfor %}
+    </table>
+    <br/><br/>
+
+    {#********************************* Monitoreo de Memoria *********************************#}
+    <h4 class="center">Monitoreo de Memoria</h4>
+    <table class="responsive-table container">
+        <thead>
+        <tr>
+            <th data-field="id">ID</th>
+            <th data-field="name">Swpd</th>
+            <th data-field="name">Free</th>
+            <th data-field="name">Buff</th>
+            <th data-field="name">Cache</th>
+            <th data-field="name">Fecha</th>
+        </tr>
+        </thead>
+        {% for dato in datos_mem %}
+            <tr>
+                <td>{{ dato.0 }}</td>
+                <td>{{ dato.1 }}</td>
+                <td>{{ dato.2 }}</td>
+                <td>{{ dato.3 }}</td>
+                <td>{{ dato.4 }}</td>
+                <td>{{ dato.5 }}</td>
+            </tr>
+        {% endfor %}
+    </table>
+    <br/><br/>
+
+    {#********************************* Monitoreo de Swap *********************************#}
+    <h4 class="center">Monitoreo de Swap</h4>
+    <table class="responsive-table container">
+        <thead>
+        <tr>
+            <th data-field="id">ID</th>
+            <th data-field="name">Swapped In</th>
+            <th data-field="name">Swapped Out</th>
+            <th data-field="name">Fecha</th>
+        </tr>
+        </thead>
+        {% for dato in datos_swap %}
+            <tr>
+                <td>{{ dato.0 }}</td>
+                <td>{{ dato.1 }}</td>
+                <td>{{ dato.2 }}</td>
+                <td>{{ dato.3 }}</td>
+            </tr>
+        {% endfor %}
+    </table>
+    <br/><br/>
+{#</div>#}
+
+<br/><br/><br/><br/>
+<!-- Footer -->
+<footer class="page-footer indigo">
+    <div class="container white-text">
+        Envianos tus Comentarios
+    </div>
+    <div class="footer-copyright">
+        <div class="container">Remote Monitoring © 2016</div>
+    </div>
+</footer>
+
+<!--  Scripts-->
+<script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+<script src="../static/js/materialize.js"></script>
+<script src="../static/js/init.js"></script>
+
+</body>
+</html>

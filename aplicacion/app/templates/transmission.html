@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="es">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0"/>
+    <title>Transmission</title>
+
+    <!-- CSS  -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="../static/css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+</head>
+<body>
+<nav class="indigo  nav-principal" role="navigation">
+    <div class="nav-wrapper container">
+        <a id="logo-container" href="../index.html" class="brand-logo">Rm</a>
+    </div>
+</nav>
+<br/><br/><br/>
+
+<div class="container">
+    <h4 class="center">Inserta Nuevos Magnet Links</h4>
+
+    <form action="" method="post" name="login">
+        {{ form.hidden_tag() }}
+        <div class="row">
+
+            <div class="input-field col s12">
+                {{ form.magnet_link() }}
+                <label for="magnet_link">Magnet Link</label>
+            </div>
+
+            <div class="input-field col s12">
+                {{ form.name_link() }}
+                <label for="name_link">Nombre</label>
+            </div>
+            <button class="col s2 btn waves-effect waves-light " type="submit" name="action">Enviar
+                <i class="material-icons right">send</i>
+            </button>
+        </div>
+    </form>
+    <br/><br/><br/><br/>
+</div>
+<h4 class="center">Informe de Torrentss</h4>
+<table class="responsive-table container">
+    <thead>
+    <tr>
+        <th data-field="id">ID</th>
+        <th data-field="name">Hash</th>
+        <th data-field="name">Nombre</th>
+        <th data-field="name">Porcentaje</th>
+        <th data-field="name">Descargado</th>
+        <th data-field="name">Tiempo Restante</th>
+        <th data-field="name">Rate UP</th>
+        <th data-field="name">Rate Down</th>
+        <th data-field="name">Status</th>
+        <th data-field="name">Fecha</th>
+    </tr>
+    </thead>
+    {% for dato in datos_torrents %}
+        <tr>
+            <td>{{ dato.0 }}</td>
+            <td>{{ dato.1 }}</td>
+            <td>{{ dato.8 }}</td>
+            <td>{{ dato.2 }}</td>
+            <td>{{ dato.3 }}</td>
+            <td>{{ dato.4 }}</td>
+            <td>{{ dato.5 }}</td>
+            <td>{{ dato.6 }}</td>
+            <td>{{ dato.7 }}</td>
+            <td>{{ dato.9 }}</td>
+        </tr>
+    {% endfor %}
+</table>
+<br/><br/><br/><br/>
+
+<h4 class="center">Torrents Pendientes</h4>
+<table class="responsive-table container">
+    <thead>
+    <tr>
+        <th data-field="id">ID</th>
+        <th data-field="name">Nombre</th>
+        <th data-field="name">Manet Link Short</th>
+        <th data-field="name">Estado</th>
+        <th data-field="name">Fecha</th>
+    </tr>
+    </thead>
+    {% for dato in datos_torrents_cola %}
+        <tr>
+            <td>{{ dato.0 }}</td>
+            <td>{{ dato.1 }}</td>
+            <td>{{ dato.3 }}</td>
+            <td>{{ dato.4 }}</td>
+            <td>{{ dato.5 }}</td>
+        </tr>
+    {% endfor %}
+</table>
+<br/><br/><br/><br/>
+<!-- Footer -->
+<footer class="page-footer indigo">
+    <div class="container white-text">
+        Envianos tus Comentarios
+    </div>
+    <div class="footer-copyright">
+        <div class="container">Remote Monitoring © 2016</div>
+    </div>
+</footer>
+
+<!--  Scripts-->
+<script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+<script src="../static/js/materialize.js"></script>
+<script src="../static/js/init.js"></script>
+
+</body>
+</html>
